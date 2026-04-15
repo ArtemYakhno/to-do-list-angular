@@ -1,0 +1,34 @@
+<div class="task-item" [class.task-item--done]="task().completed">
+  <input
+    class="task-item__checkbox"
+    type="checkbox"
+    [checked]="task().completed"
+    (change)="toggle.emit(task().id)"
+  />
+
+  @if (!editing) {
+    <span class="task-item__title">{{ task().title }}</span>
+    <span class="task-item__badge task-item__badge--{{ task().priority }}">
+      {{ task().priority }}
+    </span>
+    <div class="task-item__actions">
+      <button class="task-item__btn task-item__btn--edit" (click)="startEdit()">✎</button>
+      <button class="task-item__btn task-item__btn--delete" (click)="delete.emit(task().id)">
+        ✕
+      </button>
+    </div>
+  }
+
+  @if (editing) {
+    <input
+      class="task-item__edit-input"
+      [(ngModel)]="editTitle"
+      (keyup.enter)="saveEdit()"
+      (keyup.escape)="cancelEdit()"
+    />
+    <div class="task-item__actions">
+      <button class="task-item__btn task-item__btn--save" (click)="saveEdit()">✓</button>
+      <button class="task-item__btn task-item__btn--cancel" (click)="cancelEdit()">✕</button>
+    </div>
+  }
+</div>

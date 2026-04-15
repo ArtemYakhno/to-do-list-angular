@@ -1,0 +1,114 @@
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  transition: border-color 0.15s;
+
+  &:hover {
+    border-color: #ddd;
+  }
+
+  // Виконана задача
+  &--done {
+    opacity: 0.45;
+
+    .task-item__title {
+      text-decoration: line-through;
+    }
+  }
+
+  // Чекбокс
+  &__checkbox {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    cursor: pointer;
+    accent-color: #111;
+  }
+
+  // Назва
+  &__title {
+    flex: 1;
+    font-size: 14px;
+    color: #222;
+  }
+
+  // Поле редагування
+  &__edit-input {
+    flex: 1;
+    padding: 4px 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.15s;
+
+    &:focus {
+      border-color: #888;
+    }
+  }
+
+  // Кнопки
+  &__actions {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  &__btn {
+    padding: 4px 8px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    background: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    color: #999;
+    transition: all 0.15s;
+
+    &:hover {
+      border-color: #ccc;
+      color: #111;
+    }
+
+    &--delete:hover {
+      border-color: #ffcccc;
+      background: #fff5f5;
+      color: #c0392b;
+    }
+
+    &--save:hover {
+      border-color: #c3e6cb;
+      background: #f0fff4;
+      color: #276749;
+    }
+  }
+
+  // Бейдж пріоритету
+  &__badge {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 500;
+    flex-shrink: 0;
+    text-transform: capitalize;
+
+    &--low {
+      background: #f0f0f0;
+      color: #777;
+    }
+
+    &--medium {
+      background: #fff3cd;
+      color: #8a6200;
+    }
+
+    &--high {
+      background: #ffe5e5;
+      color: #c0392b;
+    }
+  }
+}
